@@ -5,6 +5,8 @@ const app=express();
 const bodyparser=require('body-parser');
 app.use(bodyparser.json());
 
+app.use(express.static(__dirname + '/public'));
+
 app.post('/course/api',(req,res)=>{ //to send data
 
 var dog = new Author({ firstname:req.body.firstname, secondname:req.body.secondname,
@@ -38,7 +40,7 @@ Author.find({id:req.params.id}).then((doc)=>{
 
 app.put('/course/api/',(req,res)=>{
 
-  Author.update({id:req.body.id},{$set:{firstname:"rajaji"}}).then((doc)=>{
+  Author.update({id:req.body.id},{$set:{firstname:req.body.firstname,age:req.body.age}}).then((doc)=>{
     res.send(doc)
   },(err)=>{
     res.status(400).send(err);

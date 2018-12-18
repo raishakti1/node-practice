@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<link rel="stylesheet" href="style.css">
+
+<title>shakti page</title>
+<script>
+
+function verify() {
+
+if(document.getElementById("login").value=="shakti"&&document.getElementById("pass").value=="rai")
+{
+
+window.location.assign("./home.htm")
+}
+
+else
+alert("wrong username or not filled");
+
+
+}
+
+function aler() {
+    var txt;
+    var person = prompt("Please enter your name:", "");
+    if (person == null || person == "") {
+        txt = "User cancelled the prompt.";
+    } else {
+        txt = "Hello " + person + "! How are you today?";
+    }
+    document.getElementById("frame").innerHTML=txt;
+}
+
+function hello()
+{
+
+window.open("https://www.google.com/","","width=50, height=50");
+}
+
+function frame() {
+    var x = document.createElement("IFRAME");
+    x.setAttribute("src", "file:///C:/Users/SH358921/Desktop/web/home.htm");
+    document.body.appendChild(x);
+}
+
+
+</script>
+
+
+
+</head>
+
+<body>
+
+
+
+<h2 style="text-align:center"><b>Welcome</b></h2>
+<br>
+<img src="download.png" alt="Girl in a jacket">
+
+<p style="text-align:center">Please put your details</p>
+
+<form action="/action_page.php" method="post">
+  Login:<br>
+
+  <input  type="text" name="logi" id="login" placeholder="username"><br>
+
+  Password:<br>
+  <input type="password" name="password" id="pass" placeholder="password">
+<br>
+<br>
+<input type="button" value="login" onclick="verify()">
+<br>
+<input type="button" value="frame" onclick="frame()">
+<div class="wipro">
+<a style="color:red" id="ele" href= "file:///C:/Users/SH358921/Desktop/web/home.htm">sign up</a>
+<a style="color:red" id="elef" href= "https://www.google.com">Google</a>
+</div>
+<input type="button" value="window" onclick="hello()">
+<br>
+<input type="button" value="alert" onclick="aler()">
+
+<p id="frame" style="text-align:center"></p>
+
+</form
+
+
+</body>
+
+</html>

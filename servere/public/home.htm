@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HOME_PAGE</title>
+</head>
+<body>
+<iframe src="file:///C:/Users/SH358921/Desktop/web/home.htm">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+<h2>JavaScript</h2>
+
+<h3>The window.location object</h3>
+<form>
+<div class="first">
+<input type="text" name="name">
+</div>
+<br>
+<select name="carlist">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
+
+<select name="cars" size="4" multiple>
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+</select>
+<br>
+  <input type="radio" name="gender" value="male"> Male<br>
+<input type="radio" name="gender" value="FEMALE"> female<br>
+<br>
+ <input type="checkbox" name="vehicle" value="Bike"> I have a bike<br>
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
+  </tr>
+</table>
+
+<input id="ast" type="button" value="ok" onclick="newDoc()">
+</form>
+<script>
+function newDoc() {
+    
+window.location.assign("https://www.google.com")
+}
+</script>
+
+</body>
+</html>
