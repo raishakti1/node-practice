@@ -1,14 +1,14 @@
 const mongoose=require('mongoose');
-
+var validator = require('validator');
 
 const profile=new mongoose.Schema({
-  firstname:{type:String,required:true,unique:true},
-  secondname:{type:String,default:''},
-  id:{type:Number,default:'',unique:true},
-  age:{type:Number,trim:true,default:''}
+  firstname:{type:String,required:true},
+  secondname:{type:String,required:true},
+  username:{type:String,required:true,unique:true},
+  password:{type:String,required:true}
 });
 
-var Author = mongoose.model('Author',profile,"shakti");
+var Author = mongoose.model('Author',profile,"login");
 
 module.exports={
   Author:Author

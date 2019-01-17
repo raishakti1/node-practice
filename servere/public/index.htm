@@ -8,44 +8,44 @@
 <title>shakti page</title>
 <script>
 
-function verify() {
+function myFunction() {
+  var myElement = document.getElementById("login").value;
 
-if(document.getElementById("login").value=="shakti"&&document.getElementById("pass").value=="rai")
-{
+  var mypassword = document.getElementById("pass").value;
+var request = new XMLHttpRequest();
+var count=0;
 
-window.location.assign("./home.htm")
+request.open('GET', 'http://localhost:3000/course/api', true);
+request.onload = function () {
+
+  // Begin accessing JSON data here
+  var data = JSON.parse(this.response);
+
+  if (request.status >= 200 && request.status < 400) {
+    data.forEach(movie => {
+      if(movie.username ==myElement && movie.password==mypassword){
+      count=1;
+      localStorage.setItem("username",movie.username);
+      }
+      });
+    if(count==1){
+      alert("successfull");
+
+    window.location.assign("http://localhost:3000/home.htm");
+
+  }
+    else
+    {
+    alert('incorrect');
+  }
+  } else {
+    alert('error');
+  }
 }
 
-else
-alert("wrong username or not filled");
-
+request.send();
 
 }
-
-function aler() {
-    var txt;
-    var person = prompt("Please enter your name:", "");
-    if (person == null || person == "") {
-        txt = "User cancelled the prompt.";
-    } else {
-        txt = "Hello " + person + "! How are you today?";
-    }
-    document.getElementById("frame").innerHTML=txt;
-}
-
-function hello()
-{
-
-window.open("https://www.google.com/","","width=50, height=50");
-}
-
-function frame() {
-    var x = document.createElement("IFRAME");
-    x.setAttribute("src", "file:///C:/Users/SH358921/Desktop/web/home.htm");
-    document.body.appendChild(x);
-}
-
-
 </script>
 
 
@@ -54,7 +54,7 @@ function frame() {
 
 <body>
 
-
+<form>
 
 <h2 style="text-align:center"><b>Welcome</b></h2>
 <br>
@@ -62,29 +62,18 @@ function frame() {
 
 <p style="text-align:center">Please put your details</p>
 
-<form action="/action_page.php" method="post">
+
   Login:<br>
 
-  <input  type="text" name="logi" id="login" placeholder="username"><br>
+  <input  type="text" name="logi" id="login" placeholder="username" ><br>
 
   Password:<br>
-  <input type="password" name="password" id="pass" placeholder="password">
+  <input type="password" name="password" id="pass" placeholder="password" >
 <br>
+<br
+</form>
+<input type="button" value="login" style="text-align:center" onclick="myFunction()" >
 <br>
-<input type="button" value="login" onclick="verify()">
-<br>
-<input type="button" value="frame" onclick="frame()">
-<div class="wipro">
-<a style="color:red" id="ele" href= "file:///C:/Users/SH358921/Desktop/web/home.htm">sign up</a>
-<a style="color:red" id="elef" href= "https://www.google.com">Google</a>
-</div>
-<input type="button" value="window" onclick="hello()">
-<br>
-<input type="button" value="alert" onclick="aler()">
-
-<p id="frame" style="text-align:center"></p>
-
-</form
 
 
 </body>

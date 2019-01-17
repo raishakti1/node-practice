@@ -2,69 +2,98 @@
 <html>
 <head>
 <title>HOME_PAGE</title>
-</head>
-<body>
-<iframe src="file:///C:/Users/SH358921/Desktop/web/home.htm">
-  <p>Your browser does not support iframes.</p>
-</iframe>
-
-<h2>JavaScript</h2>
-
-<h3>The window.location object</h3>
-<form>
-<div class="first">
-<input type="text" name="name">
-</div>
-<br>
-<select name="carlist">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
-
-<select name="cars" size="4" multiple>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="fiat">Fiat</option>
-  <option value="audi">Audi</option>
-</select>
-<br>
-  <input type="radio" name="gender" value="male"> Male<br>
-<input type="radio" name="gender" value="FEMALE"> female<br>
-<br>
- <input type="checkbox" name="vehicle" value="Bike"> I have a bike<br>
-<table style="width:100%">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>80</td>
-  </tr>
-</table>
-
-<input id="ast" type="button" value="ok" onclick="newDoc()">
-</form>
 <script>
-function newDoc() {
-    
-window.location.assign("https://www.google.com")
+function mypassword()
+{
+   document.getElementById('text').innerHTML += "<input type='text' value='' id='edit' /><br />";
+   var button = document.createElement("button");
+button.innerHTML = "ok";
+var body = document.getElementsByTagName("body")[0];
+body.appendChild(button);
+button.addEventListener ("click", function() {
+  const params ={
+  password:document.getElementById('edit').value,
+  username:localStorage.getItem("username")
+  }
+  const req = new XMLHttpRequest();
+req.open('PUT', 'http://localhost:3000/course/api',true);
+req.setRequestHeader('Content-type','application/json');
+req.send(JSON.stringify(params));
+
+req.onload = function() {
+   if (req.status >= 200 && req.status < 400) {
+    alert("successfully updated");
+    window.location.assign("http://localhost:3000/index.htm");
+}
+else {
+ alert("wrong data entered");
+}
+}
+
+});
+
+}
+
+function deleteuser()
+{
+  const params ={
+    username:localStorage.getItem("username")
+  }
+  const req = new XMLHttpRequest();
+req.open('DELETE', 'http://localhost:3000/course/api',true);
+req.setRequestHeader('Content-type','application/json');
+req.send(JSON.stringify(params));
+
+req.onload = function() {
+   if (req.status >= 200 && req.status < 400) {
+    alert("successfully deleted");
+    window.location.assign("http://localhost:3000/index.htm");
+}
+else {
+ alert("wrong data entered");
+}
+}
 }
 </script>
+</head>
+<body>
+<p id="demo">hello</p>
+<br>
+Firstname:
+<br>
+<p id="demo1">hello2</p>
+<br>
+Secondname:
+<br>
+<p id="demo2">hello3</p>
+<br>
+<input type="button" value="edit password" style="text-align:center" onclick="mypassword()" >
+<br>
+<br>
+<input type="button" value="delete account" style="text-align:center" onclick="deleteuser()" >
+<br>
+<br>
+<div id="text">
 
+</div>
+<script>
+var request = new XMLHttpRequest();
+request.open('GET', 'http://localhost:3000/course/api', true);
+request.onload = function () {
+var data = JSON.parse(this.response);
+
+if (request.status >= 200 && request.status < 400) {
+  data.forEach(movie => {
+    if(movie.username ==localStorage.getItem("username") ){
+      document.getElementById("demo1").innerHTML = movie.firstname;
+      document.getElementById("demo2").innerHTML = movie.secondname;
+}
+    });
+  }
+}
+request.send();
+document.getElementById("demo").innerHTML = "welcome"+" "+localStorage.getItem("username");
+
+</script>
 </body>
 </html>

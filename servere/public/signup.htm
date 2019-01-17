@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SIGN_UP</title>
+<script>
+function myFunction() {
+
+  const params = {
+            firstname:document.getElementById("fn").value,
+            secondname:document.getElementById("ln").value,
+            username:document.getElementById("un").value,
+            password:document.getElementById("pass").value
+        }
+
+        const request = new XMLHttpRequest();
+      request.open('POST', 'http://localhost:3000/course/api',true);
+    request.setRequestHeader('Content-type','application/json');
+  request.send(JSON.stringify(params));
+
+      request.onload = function() {
+         if (request.status >= 200 && request.status < 400) {
+          alert("successfully signup");
+          window.location.assign("http://localhost:3000/index.htm");
+      }
+      else {
+       alert("wrong data entered");
+      }
+    }
+
+
+}
+  </script>
+</head>
+<body>
+
+<h2>This is SignUp form</h2>
+
+<form>
+  First name:<br>
+  <input type="text" name="firstname" id="fn">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" id="ln">
+  <br>
+   User name:
+   <br>
+  <input type="text" name="username" id="un">
+  <br>
+  Password:<br>
+  <input type="text" name="password" id="pass">
+   </form>
+<br>
+
+<input type="button" value="SIGNUP" style="text-align:center" onclick="myFunction()"
+
+</body>
+</html>
