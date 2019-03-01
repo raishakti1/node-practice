@@ -1,0 +1,14 @@
+.signup{
+  background-color: yellow;
+  text-align: center;
+}
+
+h2
+{
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: grey;
+
+}

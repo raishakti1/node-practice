@@ -1,0 +1,14 @@
+.example{
+  color: red;
+  text-align: center;
+
+}
+
+.start{
+  text-align: center;
+  background-color: yellow;
+}
+.btn:hover {
+  background-color: grey;
+
+}

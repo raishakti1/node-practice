@@ -1,0 +1,16 @@
+<p>
+  Welcome:{{username}}
+</p>
+<br>
+<p>
+  Firstname:{{firstname}}
+</p>
+<br>
+<p>
+  Lastname:{{secondname}}
+</p>
+<a routerLink="/account/setting" routerLinkActive="active">go to setting</a>
+<div class="logout">
+<input type="button" value="LOGOUT"  (click)="myFunction()">
+</div>
+<router-outlet></router-outlet>

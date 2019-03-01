@@ -1,10 +1,11 @@
 var{mongoose} =require('./mongoose');
 var{Author} =require('./user');
 const express = require('express');//express
-const app=express();
+const app = express();
+const router = express.Router();
 const bodyparser=require('body-parser');
 app.use(bodyparser.json());
-app.use(express.static(__dirname + '/public'));
+
 var authenticate = require('./authenticate');
 const jwt = require('jsonwebtoken');
 var bcrypt=require('bcryptjs');
@@ -14,7 +15,7 @@ const path = require('path');
 
 
 
-app.post('/course/api',(req,res)=>{ //to send
+router.post('/signup',(req,res)=>{ //to send
 
 
 
@@ -36,9 +37,29 @@ app.post('/course/api',(req,res)=>{ //to send
 
   });
   });
+router.get('/shakti',authenticate,(req,res)=>{
+  //console.log(req.headers['Authorization']);
+  res.status(200).json({"error":"TOKEN IS VERIFIED"});
+});
+
+router.post('/check',authenticate,(req,res)=>{
+
+  Author.findOne({_id:req.decoded._id}).then((doc)=>{
+
+    bcrypt.compare(req.body.password,doc.password,(err,result)=>
+    {
+      if(!result)
+      {
+     return res.status(400).json({"error":"password not correct"});
+      }
+      res.status(200).json({"message":"successfull"});
+    });
 
 
-app.get('/course/api',authenticate,(req,res)=>{
+});
+});
+
+router.get('/findone',authenticate,(req,res)=>{
 
 Author.findOne({_id:req.decoded._id}).then((doc)=>{
 
@@ -51,17 +72,10 @@ Author.findOne({_id:req.decoded._id}).then((doc)=>{
 });
 
 
-app.get('/web',(req,res)=>{
-
- res.sendFile(path.join(__dirname+'/home.htm'));
-//res.redirect('http://google.com');
-//res.json({"date":Date.now()});
-  //console.log(req.app);
-
-});
 
 
-app.put('/course/api/',authenticate,(req,res)=>{
+
+router.put('/updatepassword',authenticate,(req,res)=>{
   bcrypt.genSalt(6,(err,salt)=>
  {
    bcrypt.hash(req.body.password,salt,(err,result)=>{
@@ -75,7 +89,7 @@ app.put('/course/api/',authenticate,(req,res)=>{
 });
 });
 
-app.delete('/course/api/',authenticate,(req,res)=>{
+router.delete('/delete',authenticate,(req,res)=>{
 
   Author.remove({_id:req.decoded._id}).then((doc)=>{
     res.status(200).send(doc);
@@ -85,12 +99,13 @@ app.delete('/course/api/',authenticate,(req,res)=>{
 });
 
 
-app.post('/users', (req, res) => {
+router.post('/signin', (req, res) => {
+  console.log(req.body.username);
 
   Author.findOne({ username:req.body.username}).then((doc)=>{
     if(!doc)
     {
-      res.status(400).json({"error":"true"});
+      res.status(400).json({"error":"hi"});
     }
 
     else{
@@ -113,5 +128,4 @@ app.post('/users', (req, res) => {
 });
 
 
-app.listen(3000);
-console.log('app is running');
+module.exports = router;
