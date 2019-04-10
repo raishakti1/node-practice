@@ -14,11 +14,21 @@ export class SignupComponent implements OnInit {
   password:String;
   firstname:String;
   secondname:String;
+  mail:String;
+  address:String;
+  mothername:String;
+  phonenumber:Number;
+  proof:String;
    params:any={
     userername :String,
     password:String,
     firstname:String,
-    secondname:String
+    secondname:String,
+    mail:String,
+    address:String,
+    mothername:String,
+    phonenumber:Number,
+    proof:String
   }
 
   constructor(public postservice:PostsService ,private router : Router) { }
@@ -32,7 +42,11 @@ export class SignupComponent implements OnInit {
      this.params.password=this.password;
      this.params.firstname=this.firstname;
       this.params.secondname=this.secondname;
-
+      this.params.mail=this.mail;
+      this.params.address=this.address;
+      this.params.phonenumber=this.phonenumber;
+      this.params.mothername=this.mothername;
+      this.params.proof=this.proof;
       this.postservice.signup(JSON.stringify(this.params)).subscribe((response:HttpResponse<any>) => {
         if(response.status==200)
         {

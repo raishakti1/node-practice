@@ -15,6 +15,12 @@ export class PostsService {
 
   }
 
+  productadd(body):any
+  {
+    return this.http.post('/api/product',body,{
+           headers: new HttpHeaders({'Content-type': 'application/json',
+   'x-auth': localStorage.getItem('token')}),observe: 'response'});
+  }
 
   changepassword(body):any//
   {

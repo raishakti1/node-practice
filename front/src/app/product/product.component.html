@@ -1,0 +1,9 @@
+<form #checkboxForm="ngForm" (submit)="editPartyRolesSubmit()">
+    <div *ngFor="let item of PartyRoles">
+        <label>
+        <input type="checkbox" value="{{item.Id}}" [(ngModel)]="item.Checked" [name]="item.Name" />
+        <span innerHTML="{{item.Name}}"></span>
+    </label>
+    </div>
+    <input type="submit" value="Submit">
+</form>

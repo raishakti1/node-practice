@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { DeleteaccountComponent } from './deleteaccount/deleteaccount.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { SettingComponent } from './setting/setting.component';
+import { ProductComponent } from './product/product.component';
+import { MydetailComponent } from './mydetail/mydetail.component';
 
 
 
@@ -28,7 +30,9 @@ import { SettingComponent } from './setting/setting.component';
     UseraccountComponent,
     DeleteaccountComponent,
     ChangepasswordComponent,
-    SettingComponent
+    SettingComponent,
+    ProductComponent,
+    MydetailComponent
   ],
   imports: [
     BrowserModule,

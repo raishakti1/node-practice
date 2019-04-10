@@ -1,5 +1,6 @@
 var{mongoose} =require('./mongoose');
 var{Author} =require('./user');
+var{product} =require('./product');
 const express = require('express');//express
 const app = express();
 const router = express.Router();
@@ -11,9 +12,15 @@ const jwt = require('jsonwebtoken');
 var bcrypt=require('bcryptjs');
 const path = require('path');
 
+router.post('/product',authenticate,(req,res)=>{
 
+  Author.update({_id:req.decoded._id},{$set:{products:req.body.products}}).then((doc)=>{
+    res.status(200).send(doc);
+  },(err)=>{
+    res.status(400).send(err);
+  });
 
-
+});
 
 router.post('/signup',(req,res)=>{ //to send
 
@@ -24,7 +31,7 @@ router.post('/signup',(req,res)=>{ //to send
     bcrypt.hash(req.body.password,salt,(err,result)=>{
 
       var dog = new Author({ firstname:req.body.firstname, secondname:req.body.secondname,
-        username:req.body.username,password:result });
+        username:req.body.username,password:result,address:req.body.address,proof:req.body.proof,mail:req.body.mail,phonenumber:req.body.phonenumber,mothername:req.body.mothername });
 
         dog.save().then((doc)=>{
           res.send(doc);
@@ -37,10 +44,7 @@ router.post('/signup',(req,res)=>{ //to send
 
   });
   });
-router.get('/shakti',authenticate,(req,res)=>{
-  //console.log(req.headers['Authorization']);
-  res.status(200).json({"error":"TOKEN IS VERIFIED"});
-});
+
 
 router.post('/check',authenticate,(req,res)=>{
 

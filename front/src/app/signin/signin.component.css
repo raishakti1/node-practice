@@ -6,7 +6,8 @@
 
 .start{
   text-align: center;
-  background-color: yellow;
+  background-color: ligh-blue;
+  background-size: 50% 50%;
 }
 .btn:hover {
   background-color: grey;

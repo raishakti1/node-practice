@@ -10,9 +10,11 @@ module.exports = function(req,res,next) {
             if (err) {
                 return res.json({"error": "TOKEN IS NOT VERIFIED"});
             }
+            else{
           req.decoded = decoded;
 
           next();
+        }
         });
     }
      else {

@@ -1,15 +1,22 @@
-<p>
-  Welcome:{{username}}
-</p>
+<div class="dropdown">
+  <button class="dropbtn">Setting</button>
+  <div class="dropdown-content">
+    <a routerLink="/account/changepassword" routerLinkActive="active">Want to change Password</a>
+    <a routerLink="/account/delete" routerLinkActive="active">Want to Delete Account</a>
+    </div>
+</div>
+<div class="home">
+<a routerLink="/account" routerLinkActive="active">Home</a>
+</div>
+<div class="mydetail">
+<a routerLink="/account/mydetail" routerLinkActive="active">MyDetail</a>
+</div>
+
 <br>
-<p>
-  Firstname:{{firstname}}
-</p>
 <br>
-<p>
-  Lastname:{{secondname}}
-</p>
-<a routerLink="/account/setting" routerLinkActive="active">go to setting</a>
+<div class="product">
+<a routerLink="/account/product" routerLinkActive="active">product</a>
+</div>
 <div class="logout">
 <input type="button" value="LOGOUT"  (click)="myFunction()">
 </div>

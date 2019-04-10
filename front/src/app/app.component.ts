@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front';
+  myFunction()
+  {
+    alert("Hey You can contact us on below detail"+"\n"+"Email:srshaktirai@gmail.com"+ "\n" +"Phone number:9582735898");
+  }
 }
