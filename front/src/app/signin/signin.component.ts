@@ -55,19 +55,19 @@ this.params.username=this.username;
  this.params.password=this.password;
 
      this.postservice.signin(JSON.stringify(this.params)).subscribe((response:HttpResponse<any>) => {
-       if(response.status==200)
+
+
+
+if(response.status==200)
        {
-          this.router.navigate(['/account']);
+          this.router.navigate(['/account/homepage']);
           localStorage.setItem('token', response.body.token);
           alert(localStorage.getItem('token'));
        }
 
-       else{
 
-      alert('wrong information');
-
-  }
-
+},(error)=>{
+  alert("wrong info");
 });
 
 }

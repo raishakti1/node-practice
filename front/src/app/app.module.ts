@@ -17,6 +17,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { SettingComponent } from './setting/setting.component';
 import { ProductComponent } from './product/product.component';
 import { MydetailComponent } from './mydetail/mydetail.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 
 
@@ -32,7 +33,8 @@ import { MydetailComponent } from './mydetail/mydetail.component';
     ChangepasswordComponent,
     SettingComponent,
     ProductComponent,
-    MydetailComponent
+    MydetailComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

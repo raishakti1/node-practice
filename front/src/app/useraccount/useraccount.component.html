@@ -1,3 +1,23 @@
+<div class="hi">
+  <p>
+    Hi:{{firstname}}
+  </p>
+  </div>
+
+  <div class="mydetail">
+  <a routerLink="/account/mydetail" routerLinkActive="active">MyDetail</a>
+  </div>
+  <br>
+  <br>
+  <div class="topnav">
+  <a routerLink="/account" routerLinkActive="active">Carrier</a>
+  <a routerLink="/account" routerLinkActive="active">Special Offer</a>
+  <a routerLink="/account" routerLinkActive="active">About Us</a>
+  <a routerLink="/account/product" routerLinkActive="active">Our product</a>
+  <a routerLink="/account/homepage" routerLinkActive="active">Home</a>
+
+  </div>
+
 <div class="dropdown">
   <button class="dropbtn">Setting</button>
   <div class="dropdown-content">
@@ -5,18 +25,10 @@
     <a routerLink="/account/delete" routerLinkActive="active">Want to Delete Account</a>
     </div>
 </div>
-<div class="home">
-<a routerLink="/account" routerLinkActive="active">Home</a>
-</div>
-<div class="mydetail">
-<a routerLink="/account/mydetail" routerLinkActive="active">MyDetail</a>
-</div>
 
-<br>
-<br>
-<div class="product">
-<a routerLink="/account/product" routerLinkActive="active">product</a>
-</div>
+
+
+
 <div class="logout">
 <input type="button" value="LOGOUT"  (click)="myFunction()">
 </div>

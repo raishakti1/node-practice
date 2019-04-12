@@ -11,6 +11,7 @@ import { ChangepasswordComponent } from './changepassword/changepassword.compone
 import { SettingComponent } from './setting/setting.component';
 import { ProductComponent } from './product/product.component';
 import { MydetailComponent } from './mydetail/mydetail.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
   {path:"signin", component: SigninComponent},
@@ -19,7 +20,7 @@ const routes: Routes = [
   {path:"account", component:UseraccountComponent ,children: [
      {path: 'setting', component: SettingComponent},{path: 'product', component: ProductComponent}
      ,{path: 'mydetail', component: MydetailComponent},{path:"delete", component:DeleteaccountComponent},
-     {path:"changepassword", component:ChangepasswordComponent}
+     {path:"changepassword", component:ChangepasswordComponent},{path:"homepage", component:HomepageComponent}
   ]},
 
   {path:"**", redirectTo: '/', pathMatch: 'full'}

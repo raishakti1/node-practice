@@ -22,24 +22,28 @@ export class ProductComponent  {
  PartyRoles = [
     {
      Id: 1,
-     Name: "Voip",
-     Checked: false
+     Name: "Mobile",
+     Checked: false,
+     Price:16000
     },
     {
       Id: 2,
       Name: "Internet",
-      Checked: false
+      Checked: false,
+      Price:2000
     },
     {
       Id: 3,
-      Name: "SAT TV",
-      Checked: false
+      Name: "TV",
+      Checked: false,
+      Price:21000
     }
     ,
     {
       Id: 4,
       Name: "Cable",
-      Checked: false
+      Checked: false,
+      Price:70
     }
   ]
 

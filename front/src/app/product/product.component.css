@@ -1,6 +1,56 @@
 .form
 {
-  position: absolute;
-  left: 400px;
-  top: 100px;
+
+}
+
+.card {
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  max-width: 175px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  left:20px;
+  position:absolute;
+  top:170px;
+  height:50px;
+  background-color: ;
+}
+
+.card1
+{
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  left:350px;
+  position:absolute;
+  top:170px;
+  height:140px;
+}
+
+.card2
+{
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  left:700px;
+  position:absolute;
+  top:170px;
+  height:140px;
+}
+
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.submit
+{
+  position:absolute;
+left:500px;
+top:700px;
 }

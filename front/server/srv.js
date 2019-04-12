@@ -14,13 +14,17 @@ const path = require('path');
 
 router.post('/product',authenticate,(req,res)=>{
 
-  Author.update({_id:req.decoded._id},{$set:{products:req.body.products}}).then((doc)=>{
+  Author.update({_id:req.decoded._id},{$push:{products:req.body.products}}).then((doc)=>{
     res.status(200).send(doc);
   },(err)=>{
     res.status(400).send(err);
   });
 
 });
+
+
+
+
 
 router.post('/signup',(req,res)=>{ //to send
 
@@ -104,15 +108,15 @@ router.delete('/delete',authenticate,(req,res)=>{
 
 
 router.post('/signin', (req, res) => {
-  console.log(req.body.username);
+
 
   Author.findOne({ username:req.body.username}).then((doc)=>{
     if(!doc)
     {
-      res.status(400).json({"error":"hi"});
-    }
+res.status(400).json({"error":"hi"});
+  }
 
-    else{
+  else{
    let token = jwt.sign({_id:doc._id},'abc123', {
           expiresIn: 1440 // expires in 1 hour
        });
@@ -125,9 +129,9 @@ router.post('/signin', (req, res) => {
          res.status(200).header('x-auth', token).json({token});
        });
 
-    }
+}
 },(err)=>{
-    res.status(400).send(err);
+    res.status(400).json({"error":"wrong"});
   });
 });
 

@@ -1,9 +1,33 @@
+
+
 <form #checkboxForm="ngForm" (submit)="editPartyRolesSubmit()">
-    <div *ngFor="let item of PartyRoles">
-        <label>
-        <input type="checkbox" value="{{item.Id}}" [(ngModel)]="item.Checked" [name]="item.Name" />
-        <span innerHTML="{{item.Name}}"></span>
-    </label>
-    </div>
-    <input type="submit" value="Submit">
-</form>
+  <div class="card" >
+    <img src="assets/img/mobile.jpg" alt="VIV0" style="width:100%" >
+    <h3>VIVO</h3>
+    <p class="price">16,000 Rs Only</p>
+    <p>It's a phone with 8GB ram and 32MP back camera</p>
+      <input type="checkbox" value="{{PartyRoles[0].Id}}" [(ngModel)]="PartyRoles[0].Checked" [name]="PartyRoles[0].Name" />
+      <span innerHTML="{{PartyRoles[0].Name}}"></span>
+</div>
+<div class="card1" >
+  <img src="assets/img/braodband.jpg" alt="broadband" style="width:100%" >
+  <h3>VIVO</h3>
+  <p class="price">2,000 Rs Only</p>
+  <p>Broadband with double antenna 100 mbps speed</p>
+    <input type="checkbox" value="{{PartyRoles[1].Id}}" [(ngModel)]="PartyRoles[1].Checked" [name]="PartyRoles[1].Name" />
+    <span innerHTML="{{PartyRoles[1].Name}}"></span>
+</div>
+
+<div class="card2" >
+  <img src="assets/img/television.jpg" alt="TV" style="width:100%" >
+  <h3>VIVO</h3>
+  <p class="price">21,000 Rs Only</p>
+  <p>52 inch TV with 4k screen fully smart</p>
+    <input type="checkbox" value="{{PartyRoles[2].Id}}" [(ngModel)]="PartyRoles[2].Checked" [name]="PartyRoles[2].Name" />
+    <span innerHTML="{{PartyRoles[2].Name}}"></span>
+</div>
+
+<div class="submit">
+  <input  type="submit" value="Submit">
+</div>
+  </form>
